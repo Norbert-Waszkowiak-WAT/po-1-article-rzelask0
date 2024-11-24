@@ -6,37 +6,49 @@
 #include "author.cpp"
 #include "article.cpp"
 #include "chapter.cpp"
-
 using namespace std;
 
-class Book{
+class Book
+{
 private:
     string title;
     Author author;
     int publicationYear;
-    vector <Chapter> chapters;
+    vector<Chapter>chapters;
+
 public:
     Book()
-    : title(""), author(""), publicationYear(0), chapters() {};
-    Book(string bookTitle, Author bookAuthor, int year, vector<Chapter> &bookChapters)
-    : title(bookTitle), author(bookAuthor), publicationYear(year),  chapters(bookChapters) {};
-    void addChapter(Chapter &chapter){
+    : title(""), author(Author()), publicationYear(0), chapters({}) {};
+
+    Book(const string bookTitle,const Author &bookAuthor, int year,  const vector<Chapter>&bookChapters)
+    : title(bookTitle), author(bookAuthor), publicationYear(year), chapters(bookChapters) {};
+
+    void addChapter(const Chapter &chapter)
+    {
         chapters.push_back(chapter);
     };
-    void displayInfo(){
-        cout << "skibidi mostek gyaaat";
-    };
-    string getTitle(){
+
+    string getTitle()
+    {
         return title;
     };
-    Author getAuthor(){
+
+    Author getAuthor()
+    {
         return author;
     };
-    int getPublicationYear(){
+
+    int getPublicationYear()
+    {
         return publicationYear;
     };
-    vector<Chapter> &getChapters(){
+
+    vector<Chapter> getChapters()
+    {
         return chapters;
     };
-}
+
+};
+
+
 #endif
